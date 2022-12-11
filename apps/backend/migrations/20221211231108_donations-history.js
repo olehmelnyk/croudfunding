@@ -15,6 +15,12 @@ async function up(knex) {
       .inTable('DonationsStates')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
+    table
+      .uuid('campaign')
+      .references('id')
+      .inTable('Campaigns')
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
   });
 }
 
