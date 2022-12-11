@@ -1,5 +1,6 @@
 - add seed for campaign wallet, campaign, domain state and domain history
 - implement backend endpoints, including input validation with zod
+- add postman colletion to the repo with api endpoints and examples
 - implement DB procedures
 - implement caching
 - implement frontend
