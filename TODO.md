@@ -1,0 +1,9 @@
+- add seed for campaign wallet, campaign, domain state and domain history
+- implement backend endpoints, including input validation with zod
+- implement DB procedures
+- implement caching
+- implement frontend
+- cover backend and frontend with tests
+- improve docs
+- code cleanup and refactoring
+- add pre-commit and pre-push hooks using husky (linting, code formatting, etc.)
