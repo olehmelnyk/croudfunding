@@ -2,7 +2,7 @@ In order to run project locally, you need to have installed:
 - nodejs v16 (suggest to use nvm)
 - docker
 
-Getting started:
+# Getting started:
 - clone the repo
 - cd into the root folder
 - install npm dependencies with `npm i`
