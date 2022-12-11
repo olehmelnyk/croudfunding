@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    environment:
+      MYSQL_DATABASE: 'db_croudfunding_name'
+      MYSQL_USER: 'db_croudfunding_user'
+      MYSQL_PASSWORD: 'db_croudfunding_password'
+      MYSQL_ROOT_PASSWORD: 'db_croudfunding_root_password'
+    restart: always
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql
+
+volumes:
+  volumes:
