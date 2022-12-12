@@ -1,7 +1,7 @@
 async function up(knex) {
-  return knex.schema.hasTable('CampaignOwnerWallets').then(function (exists) {
+  return knex.schema.hasTable('CampaignOwnerWallets').then(async function (exists) {
     if (!exists) {
-      knex.schema.createTable('CampaignOwnerWallets', function (table) {
+      await knex.schema.createTable('CampaignOwnerWallets', function (table) {
         table.uuid('id').primary().defaultTo(knex.raw('(UUID())'));
         table
           .uuid('owner_id')
@@ -23,7 +23,7 @@ async function up(knex) {
 }
 
 async function down(knex) {
-  return knex.schema.dropTable('CampaignOwnerWallets');
+  return knex.schema.dropTableIfExists('CampaignOwnerWallets');
 }
 
 module.exports = { up, down };
