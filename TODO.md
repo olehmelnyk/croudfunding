@@ -1,4 +1,3 @@
-- add seed for domain history
 - implement backend endpoints, including input validation with zod
 - add postman collection to the repo with api endpoints and examples
 - implement caching (Redis?)
