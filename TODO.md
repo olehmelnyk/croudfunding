@@ -2,7 +2,7 @@
 - implement backend endpoints, including input validation with zod
 - add postman colletion to the repo with api endpoints and examples
 - implement DB procedures
-- implement caching
+- implement caching (Redis?)
 - implement frontend
 - cover backend and frontend with tests
 - improve docs
