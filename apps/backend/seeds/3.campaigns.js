@@ -21,6 +21,43 @@ module.exports.seed = async function (knex) {
   console.log('ownerIds', ownerIds);
 
   // TODO: create owners wallets
+  await knex('CampaignOwnerWallets').insert([
+    {
+      owner_id: ownerIds[Math.floor(Math.random() * ownerIds.length)],
+      crypto_name: 'BTC',
+      crypto_wallet_address: '' + Date.now() + Math.random(),
+    },
+    {
+      owner_id: ownerIds[Math.floor(Math.random() * ownerIds.length)],
+      crypto_name: 'BTC',
+      crypto_wallet_address: '' + Date.now() + Math.random(),
+    },
+    {
+      owner_id: ownerIds[Math.floor(Math.random() * ownerIds.length)],
+      crypto_name: 'BTC',
+      crypto_wallet_address: '' + Date.now() + Math.random(),
+    },
+    {
+      owner_id: ownerIds[Math.floor(Math.random() * ownerIds.length)],
+      crypto_name: 'BTC',
+      crypto_wallet_address: '' + Date.now() + Math.random(),
+    },
+    {
+      owner_id: ownerIds[Math.floor(Math.random() * ownerIds.length)],
+      crypto_name: 'BTC',
+      crypto_wallet_address: '' + Date.now() + Math.random(),
+    },
+    {
+      owner_id: ownerIds[Math.floor(Math.random() * ownerIds.length)],
+      crypto_name: 'BTC',
+      crypto_wallet_address: '' + Date.now() + Math.random(),
+    },
+    {
+      owner_id: ownerIds[Math.floor(Math.random() * ownerIds.length)],
+      crypto_name: 'BTC',
+      crypto_wallet_address: '' + Date.now() + Math.random(),
+    },
+  ]);
 
   // TODO: create campaigns
 };
