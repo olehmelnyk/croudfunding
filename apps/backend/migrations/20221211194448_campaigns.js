@@ -23,8 +23,15 @@ async function up(knex) {
       .references('campaign_status')
       .inTable('CampaignStatuses')
       .onUpdate('CASCADE')
-      .onDelete('CASCADE');
+      .onDelete('CASCADE')
+      .defaultTo('active');
     table.date('expiration_date').notNullable();
+    table
+      .uuid('owner_id')
+      .references('id')
+      .inTable('CampaignOwners')
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
     table.timestamps(true, true);
   });
 }

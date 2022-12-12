@@ -54,7 +54,8 @@ module.exports.seed = async function (knex) {
     ]),
     crypto_currency_amount: 0,
     status: 'active',
-    expiration_date: faker.date.soon(30)
+    expiration_date: faker.date.soon(30),
+    owner_id: ownerIds[Math.floor(Math.random() * ownerIds.length)]
   }));
 
   // console.log(campaigns);
