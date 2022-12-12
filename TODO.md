@@ -8,6 +8,7 @@
 - improve docs
 - code cleanup and refactoring
 - add pre-commit and pre-push hooks using husky (linting, code formatting, etc.)
+- try to use faker.js for seeds
 
 ---
 Implement Express endpoints:
