@@ -15,6 +15,8 @@ In order to run db migrations and seeds -
 2. run `npx knex migrate:latest`
 3. run `npx knex seed:run`
 
+OR run `npm run db:local` from the root folder - it will spin-up docker-compose and run db migrations and seeds
+
 In order to run NodeJS/Express server locally - run `npx nx serve backend` - server will start on `http://localhost:3333`
 
 - run `knex migrate:make migration_name` from apps/backend folder to create a new migration

@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "db:local": "docker-compose up -d && cd apps/backend && npx knex migrate:latest && npx knex seed:run"
   },
   "private": true,
   "devDependencies": {
