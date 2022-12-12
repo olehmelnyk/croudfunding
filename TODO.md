@@ -8,3 +8,14 @@
 - improve docs
 - code cleanup and refactoring
 - add pre-commit and pre-push hooks using husky (linting, code formatting, etc.)
+
+---
+Implement Express endpoints:
+- list of all campaigns with active status (with pagination)
+- get campaign by id
+- make a donation
+- mark all campaigns as a fraud by campaign owner id
+
+---
+Implemebt DB Procedures:
+- check every 10 seconds if campaign is expired or reached the desired goal - to change state to 'expired' or 'successful'
