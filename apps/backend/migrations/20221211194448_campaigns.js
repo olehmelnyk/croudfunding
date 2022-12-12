@@ -1,10 +1,10 @@
 async function up(knex) {
   return knex.schema.createTable('Campaigns', function (table) {
     table.uuid('id').primary().defaultTo(knex.raw('(UUID())'));
-    table.string('name').unique().notNullable();
-    table.string('description').nullable();
-    table.float('goal', 2, 2).checkPositive().notNullable();
-    table.float('amount', 2, 2).checkPositive().notNullable();
+    table.text('name').notNullable();
+    table.text('description').nullable();
+    table.float('goal', 14, 2).notNullable();
+    table.float('amount', 14, 2).notNullable();
     table
       .string('fiat_currency')
       .references('name')
@@ -17,7 +17,7 @@ async function up(knex) {
       .inTable('CryptoCurrencies')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
-    table.float('crypto_currency_amount', null).checkPositive().notNullable();
+    table.float('crypto_currency_amount', null).notNullable();
     table
       .string('status')
       .references('campaign_status')

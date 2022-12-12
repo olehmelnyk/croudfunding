@@ -1,7 +1,7 @@
 async function up(knex) {
   return knex.schema.createTable('DonationsHistory', function (table) {
     table.uuid('id').primary().defaultTo(knex.raw('(UUID())'));
-    table.float('amount', 2, 2).checkPositive().notNullable();
+    table.float('amount', 14, 2).notNullable();
     table
       .string('fiat_currency')
       .references('name')
