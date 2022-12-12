@@ -1,4 +1,4 @@
-- add seed for campaign wallet, campaign, domain state and domain history
+- add seed for domain state and domain history
 - implement backend endpoints, including input validation with zod
 - add postman colletion to the repo with api endpoints and examples
 - implement DB procedures
@@ -8,7 +8,6 @@
 - improve docs
 - code cleanup and refactoring
 - add pre-commit and pre-push hooks using husky (linting, code formatting, etc.)
-- try to use faker.js for seeds
 
 ---
 Implement Express endpoints:
@@ -16,6 +15,7 @@ Implement Express endpoints:
 - get campaign by id
 - make a donation
 - mark all campaigns as a fraud by campaign owner id
+- list all fiat_currency and crypto_currency (2 endpoints)
 
 ---
 Implemebt DB Procedures:
