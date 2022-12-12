@@ -1,7 +1,6 @@
-- add seed for domain state and domain history
+- add seed for domain history
 - implement backend endpoints, including input validation with zod
-- add postman colletion to the repo with api endpoints and examples
-- implement DB procedures
+- add postman collection to the repo with api endpoints and examples
 - implement caching (Redis?)
 - implement frontend
 - cover backend and frontend with tests
@@ -18,5 +17,9 @@ Implement Express endpoints:
 - list all fiat_currency and crypto_currency (2 endpoints)
 
 ---
-Implemebt DB Procedures:
-- check every 10 seconds if campaign is expired or reached the desired goal - to change state to 'expired' or 'successful'
+DB Procedures (done):
+--check every 10 seconds if campaign is expired or reached the desired goal - to change state to 'expired' or 'successful'--
+
+---
+DB Triggers (done):
+--when writing to DonationHistory - update/increment Campaign.amount--
