@@ -5,37 +5,18 @@
 
 import * as express from 'express';
 import * as path from 'path';
-import db from './config/db';
+import * as bodyParser from 'body-parser';
+
+import campaignRouter from './routes/campaigns';
 
 const app = express();
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to backend!' });
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/api/campaigns', async (req, res) => {
-  const PER_PAGE = 10;
-
-  const status = req.query?.status || 'active';
-
-  const campaigns = await db('Campaigns')
-    .select([
-      'id',
-      'name',
-      'description',
-      'goal',
-      'amount',
-      'status',
-      'expiration_date',
-    ])
-    .where({ status })
-    .limit(Math.min(100, Number(req.query?.perPage) || PER_PAGE))
-    .offset(PER_PAGE * Number(req.query?.page));
-
-  res.json(campaigns);
-});
+app.use('/api/campaigns', campaignRouter);
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
