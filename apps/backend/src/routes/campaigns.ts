@@ -14,12 +14,13 @@ campaignRouter.get(
       perPage: z
         .number()
         .or(z.string().regex(/\d+/).transform(Number))
-        .optional()
-        .refine((n) => n >= 3 && n <= 100),
+        .refine((n) => n >= 3 && n <= 100)
+        .optional(),
       page: z
         .number()
         .or(z.string().regex(/\d+/).transform(Number))
-        .refine((n) => n >= 1),
+        .refine((n) => n >= 1)
+        .optional(),
     }),
   }),
   async (req, res) => {
@@ -35,6 +36,7 @@ campaignRouter.get(
         'amount',
         'status',
         'expiration_date',
+        'fiat_currency'
       ])
       .where({ status })
       .limit(Math.min(100, Number(req.query.perPage) || PER_PAGE))
