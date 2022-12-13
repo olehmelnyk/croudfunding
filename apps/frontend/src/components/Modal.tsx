@@ -52,7 +52,7 @@ export default function BasicModal(props: Props) {
       nickname: '',
     },
     validationSchema: toFormikValidationSchema(validationSchema),
-    onSubmit: async (values) => {
+    onSubmit: async (values, { resetForm }) => {
       await fetch(`http://localhost:3333/api/donate/${props.campaign.id}`, {
         method: 'POST',
         headers: {
@@ -61,6 +61,8 @@ export default function BasicModal(props: Props) {
         },
         body: JSON.stringify(values),
       });
+
+      resetForm();
       handleClose();
     },
   });
