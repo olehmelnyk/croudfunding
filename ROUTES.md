@@ -19,3 +19,13 @@ base url: http://localhost:3333/
 
 ## Report fraud
 - PATCH /api/report/fraud/:campaignOwnerId - update campaign status to fraud by campaign owner ID
+
+## Donate
+- POST /api/donate/:campaignId - makes a donation;
+
+body params:
+{
+  "amount": 100,
+  "fiat_currency": "USD",
+  "nickname": "oleh_melnyk"
+}

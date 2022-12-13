@@ -1,5 +1,4 @@
-- implement backend endpoints, including input validation with zod
-- add postman collection to the repo with api endpoints and examples
+- implement input validation with zod for backend and frontend
 - implement caching (Redis?)
 - implement frontend
 - cover backend and frontend with tests
@@ -8,7 +7,7 @@
 - add pre-commit and pre-push hooks using husky (linting, code formatting, etc.)
 
 ---
-Implement Express endpoints:
+Implement Express endpoints (done):
 - list of all campaigns with active status (with pagination)
 - get campaign by id
 - make a donation

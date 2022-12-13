@@ -107,6 +107,36 @@
 			"response": []
 		},
 		{
+			"name": "Make a donation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 100,\n  \"fiat_currency\": \"USD\",\n  \"nickname\": \"oleh_melnyk\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/api/donate/894e84f7-7afa-11ed-bc55-0242ac130002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"donate",
+						"894e84f7-7afa-11ed-bc55-0242ac130002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Report fraud campaign owner",
 			"request": {
 				"method": "PATCH",
