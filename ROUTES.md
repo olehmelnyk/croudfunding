@@ -12,3 +12,7 @@ base url: http://localhost:3333/
 
 ## Get campaign by id
 - GET /api/campaigns/:campaignId - returns single campaign by id
+
+## Currency
+- GET /api/currency/fiat - returns a list of fiat currencies (USD, EUR, UAH)
+- GET /api/currency/crypto - returns a list of crypto currencies

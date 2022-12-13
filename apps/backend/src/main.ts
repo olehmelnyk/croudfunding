@@ -8,6 +8,7 @@ import * as path from 'path';
 import * as bodyParser from 'body-parser';
 
 import campaignRouter from './routes/campaigns';
+import currencyRouter from './routes/currency';
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/campaigns', campaignRouter);
+app.use('/api/currency', currencyRouter);
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
