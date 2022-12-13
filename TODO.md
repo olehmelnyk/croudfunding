@@ -1,5 +1,3 @@
-- implement frontend
-- implement input validation with zod for frontend
 - cover backend and frontend with tests (unit, e2e)
 - implement caching (Redis?)
 - improve docs

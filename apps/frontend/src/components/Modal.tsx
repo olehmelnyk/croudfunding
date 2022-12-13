@@ -53,13 +53,11 @@ export default function BasicModal(props: Props) {
     },
     validationSchema: toFormikValidationSchema(validationSchema),
     onSubmit: async (values) => {
-      alert(JSON.stringify(values, null, 2));
-
       await fetch(`http://localhost:3333/api/donate/${props.campaign.id}`, {
         method: 'POST',
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(values),
       });
