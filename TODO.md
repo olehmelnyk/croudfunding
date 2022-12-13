@@ -1,7 +1,7 @@
-- implement input validation with zod for backend and frontend
-- implement caching (Redis?)
 - implement frontend
+- implement input validation with zod for frontend
 - cover backend and frontend with tests
+- implement caching (Redis?)
 - improve docs
 - code cleanup and refactoring
 - add pre-commit and pre-push hooks using husky (linting, code formatting, etc.)

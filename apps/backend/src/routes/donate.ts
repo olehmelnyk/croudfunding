@@ -1,22 +1,39 @@
 import * as express from 'express';
+import { validateRequest } from 'zod-express-middleware';
+import { z } from 'zod';
 
 import db from '../config/db';
 
 const donateRouter = express.Router();
 
-donateRouter.post('/:campaignId', async (req, res) => {
-  // TODO: add input validation via Zod
-  const { amount, fiat_currency, nickname } = req.body;
+donateRouter.post(
+  '/:campaignId',
+  validateRequest({
+    body: z.object({
+      amount: z.number().refine((n) => n >= 0),
+      fiat_currency: z.string().regex(/^[A-Z]{3}$/),
+      nickname: z.string().regex(/^[a-z0-9_]{3,}$/i),
+    }),
+    params: z.object({
+      campaignId: z.string().uuid(),
+    }),
+  }),
+  async (req, res) => {
+    const { amount, fiat_currency, nickname } = req.body;
 
-  const result = await db('DonationsHistory').insert({
-    amount,
-    fiat_currency,
-    nickname,
-    state: 'valid', // not specified when state is invalid
-    campaign: req.params.campaignId,
-  }).returning('id');
+    // MySQL does not return data/id on insert
+    const donation = {
+      amount,
+      fiat_currency,
+      nickname,
+      state: 'valid', // not specified when state is invalid
+      campaign: req.params.campaignId,
+    };
 
-  res.status(201).json(result);
-});
+    await db('DonationsHistory').insert(donation);
+
+    res.status(201).json({ success: true, ...donation });
+  }
+);
 
 export default donateRouter;
