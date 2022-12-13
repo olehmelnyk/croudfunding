@@ -16,3 +16,6 @@ base url: http://localhost:3333/
 ## Currency
 - GET /api/currency/fiat - returns a list of fiat currencies (USD, EUR, UAH)
 - GET /api/currency/crypto - returns a list of crypto currencies
+
+## Report fraud
+- PATCH /api/report/fraud/:campaignOwnerId - update campaign status to fraud by campaign owner ID
