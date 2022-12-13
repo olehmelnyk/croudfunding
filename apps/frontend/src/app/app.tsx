@@ -7,11 +7,13 @@ import {
   Container,
   Divider,
   Stack,
+  TextField,
   Typography,
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './app.module.css';
+import BasicModal from '../components/Modal';
 
 interface Campaign {
   id: string;
@@ -85,7 +87,17 @@ export function App() {
                 </Box>
               </CardContent>
               <CardActions>
-                <Button fullWidth>Donate</Button>
+                <BasicModal
+                  buttonText="Donate"
+                  modalContent={
+                    <Stack spacing={3}>
+                      <TextField label="Amount" type="number" />
+                      <TextField label="Currency" />
+                      <TextField label="Nickname" />
+                      <Button type="submit">Submit donation</Button>
+                    </Stack>
+                  }
+                />
               </CardActions>
             </Card>
           );
