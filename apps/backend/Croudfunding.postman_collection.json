@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "939d5ca7-9a9a-44da-8cd9-30d1e0227b5a",
+		"name": "Croudfunding",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22601504"
+	},
+	"item": [
+		{
+			"name": "Get campaign list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3333/api/campaigns?status=active&perPage=25&page=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"campaigns"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "active",
+							"description": "could be \"active\", \"expired\", \"fraud\", \"successful\""
+						},
+						{
+							"key": "perPage",
+							"value": "25",
+							"description": "default 10"
+						},
+						{
+							"key": "page",
+							"value": "3",
+							"description": "default 1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get campaign by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3333/api/campaigns/894b97c4-7afa-11ed-bc55-0242ac130002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"campaigns",
+						"894b97c4-7afa-11ed-bc55-0242ac130002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get fiat currency list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3333/api/currency/fiat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"currency",
+						"fiat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get crypto currency list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3333/api/currency/crypto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"currency",
+						"crypto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report fraud campaign owner",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3333/api/report/fraud/8929b2c1-7afa-11ed-bc55-0242ac130002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"report",
+						"fraud",
+						"8929b2c1-7afa-11ed-bc55-0242ac130002"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -5,7 +5,7 @@ import db from '../config/db';
 const currencyRouter = express.Router();
 
 currencyRouter.get('/fiat', async (req, res) => {
-  const fiatCurrencies = (await (await db('FiatCurrencies').select(['name']))).map(({name}) => name);
+  const fiatCurrencies = ((await db('FiatCurrencies').select(['name']))).map(({name}) => name);
 
   res.json(fiatCurrencies);
 });
