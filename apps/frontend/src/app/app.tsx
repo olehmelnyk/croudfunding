@@ -87,17 +87,7 @@ export function App() {
                 </Box>
               </CardContent>
               <CardActions>
-                <BasicModal
-                  buttonText="Donate"
-                  modalContent={
-                    <Stack spacing={3}>
-                      <TextField label="Amount" type="number" />
-                      <TextField label="Currency" />
-                      <TextField label="Nickname" />
-                      <Button type="submit">Submit donation</Button>
-                    </Stack>
-                  }
-                />
+                <BasicModal campaign={campaign} />
               </CardActions>
             </Card>
           );
