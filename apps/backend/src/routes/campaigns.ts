@@ -10,7 +10,7 @@ campaignRouter.get(
   '/',
   validateRequest({
     query: z.object({
-      status: z.enum(['active', 'expired', 'fraud', 'successful']).optional(),
+      status: z.enum(['active', 'expired', 'fraud', 'successful']).optional(), // probably we should get those values from DB - Redis or MySQL
       perPage: z
         .number()
         .or(z.string().regex(/\d+/).transform(Number))

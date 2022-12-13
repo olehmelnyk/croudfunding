@@ -1,23 +1,13 @@
 - implement frontend
 - implement input validation with zod for frontend
-- cover backend and frontend with tests
+- cover backend and frontend with tests (unit, e2e)
 - implement caching (Redis?)
 - improve docs
 - code cleanup and refactoring
 - add pre-commit and pre-push hooks using husky (linting, code formatting, etc.)
+- add swagger for API
 
 ---
-Implement Express endpoints (done):
-- list of all campaigns with active status (with pagination)
-- get campaign by id
-- make a donation
-- mark all campaigns as a fraud by campaign owner id
-- list all fiat_currency and crypto_currency (2 endpoints)
-
----
-DB Procedures (done):
---check every 10 seconds if campaign is expired or reached the desired goal - to change state to 'expired' or 'successful'--
-
----
-DB Triggers (done):
---when writing to DonationHistory - update/increment Campaign.amount--
+Refactoring:
+- [backend] move validations into separate files
+- [backend] move db queries to the separate files
