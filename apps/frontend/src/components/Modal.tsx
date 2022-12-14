@@ -1,4 +1,4 @@
-import { Stack, TextField } from '@mui/material';
+import { Stack, TextField, Typography, Divider } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
@@ -7,31 +7,9 @@ import { useFormik } from 'formik';
 import z from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 500,
-  bgcolor: 'background.paper',
-  borderRadius: '.5rem',
-  boxShadow: 24,
-  p: '1rem',
-};
-
-interface Campaign {
-  id: string;
-  name: string;
-  description: string;
-  goal: number;
-  amount: number;
-  status: string;
-  expiration_date: string;
-  fiat_currency: string;
-}
-
+import Campaign, { ICampaign } from '../components/Campaign';
 interface Props {
-  campaign: Campaign;
+  campaign: ICampaign;
 }
 
 const validationSchema = z.object({
@@ -53,14 +31,17 @@ export default function BasicModal(props: Props) {
     },
     validationSchema: toFormikValidationSchema(validationSchema),
     onSubmit: async (values, { resetForm }) => {
-      await fetch(`http://localhost:3333/api/donate/${props.campaign.id}`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      });
+      await fetch(
+        `${process.env.NX_BASE_URL_BACKEND_API_BASE_URL}/donate/${props.campaign.id}`,
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        }
+      );
 
       resetForm();
       handleClose();
@@ -82,9 +63,26 @@ export default function BasicModal(props: Props) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 600,
+            bgcolor: 'background.paper',
+            borderRadius: '.5rem',
+            boxShadow: 24,
+            p: '1rem',
+          }}
+        >
+          <Campaign campaign={props.campaign} />
+
+          <Divider style={{ margin: '1rem 0' }} />
+
           <form onSubmit={formik.handleSubmit}>
             <Stack spacing={3}>
+              <Typography variant="h6">Make a donation:</Typography>
               <TextField
                 label="Amount"
                 name="amount"
@@ -93,6 +91,7 @@ export default function BasicModal(props: Props) {
                 onChange={formik.handleChange}
                 error={formik.touched.amount && Boolean(formik.errors.amount)}
                 helperText={formik.touched.amount && formik.errors.amount}
+                size="small"
               />
               <TextField
                 label="Currency"
@@ -107,6 +106,7 @@ export default function BasicModal(props: Props) {
                 helperText={
                   formik.touched.fiat_currency && formik.errors.fiat_currency
                 }
+                size="small"
               />
               <TextField
                 label="Nickname"
@@ -117,6 +117,7 @@ export default function BasicModal(props: Props) {
                   formik.touched.nickname && Boolean(formik.errors.nickname)
                 }
                 helperText={formik.touched.nickname && formik.errors.nickname}
+                size="small"
               />
               <Button type="submit" fullWidth>
                 Submit
