@@ -51,6 +51,8 @@ export default function BasicModal(props: Props) {
 
       // TODO: implement a success and error messages based on response from the server
       setShowSnackbar(true);
+
+      // TODO: update amount of received donations (millions of donations can be received as the same time - should we refetch all campaigns periodically? what about caching?)
     },
   });
 
