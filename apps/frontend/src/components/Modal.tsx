@@ -1,4 +1,4 @@
-import { Divider } from '@mui/material';
+import { Alert, Divider, Snackbar } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
@@ -47,12 +47,14 @@ export default function BasicModal(props: Props) {
 
       resetForm();
       handleClose();
+      setSnackBarOpen(true);
     },
   });
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [snackBarOpen, setSnackBarOpen] = useState(false);
 
   return (
     <Box style={{ width: '100%' }}>
@@ -83,6 +85,11 @@ export default function BasicModal(props: Props) {
           <DonationForm formik={formik} />
         </Box>
       </Modal>
+      <Snackbar open={snackBarOpen} autoHideDuration={6000} onClose={() => setSnackBarOpen(false)}>
+        <Alert onClose={() => setSnackBarOpen(false)} severity="success" sx={{ width: '100%' }}>
+          Donation received!
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }
