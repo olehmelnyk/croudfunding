@@ -1,4 +1,4 @@
-import { Alert, Divider, Snackbar } from '@mui/material';
+import { Divider,  } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
@@ -9,6 +9,7 @@ import { toFormikValidationSchema } from 'zod-formik-adapter';
 
 import Campaign, { ICampaign } from '../components/Campaign';
 import DonationForm from './DonationForm';
+import Snackbar from './Snackbar';
 
 interface Props {
   campaign: ICampaign;
@@ -47,14 +48,16 @@ export default function BasicModal(props: Props) {
 
       resetForm();
       handleClose();
-      setSnackBarOpen(true);
+
+      // TODO: implement a success and error messages based on response from the server
+      setShowSnackbar(true);
     },
   });
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [snackBarOpen, setSnackBarOpen] = useState(false);
+  const [showSnackbar, setShowSnackbar] = useState(false);
 
   return (
     <Box style={{ width: '100%' }}>
@@ -85,11 +88,7 @@ export default function BasicModal(props: Props) {
           <DonationForm formik={formik} />
         </Box>
       </Modal>
-      <Snackbar open={snackBarOpen} autoHideDuration={6000} onClose={() => setSnackBarOpen(false)}>
-        <Alert onClose={() => setSnackBarOpen(false)} severity="success" sx={{ width: '100%' }}>
-          Donation received!
-        </Alert>
-      </Snackbar>
+     <Snackbar showSnackbar={showSnackbar} severity='success' message='Donation received successfully' />
     </Box>
   );
 }

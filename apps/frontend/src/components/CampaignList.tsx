@@ -23,7 +23,7 @@ export const CampaignList = () => {
     <Stack spacing={3}>
       {activeCampaigns.map((campaign) => {
         return (
-          <Card>
+          <Card key={campaign.id}>
             <CardContent>
               <Campaign campaign={campaign} />
             </CardContent>
