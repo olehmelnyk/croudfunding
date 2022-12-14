@@ -9,6 +9,7 @@ export const CampaignList = () => {
   useEffect(() => {
     const getActiveCampaigns = async () => {
       // TODO: move this effect into a custom hook file
+      // TODO: load more campaigns on scroll
       const response = await fetch(
         `${process.env.NX_BASE_URL_BACKEND_API_BASE_URL}/campaigns`
       );
