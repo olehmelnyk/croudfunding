@@ -30,4 +30,4 @@ For more info regarding knex ORM check docs: https://knexjs.org/
 ---
 
 ## Frontend
-In order to run frontend locally - run `npx nx serve frontned` from the project root folder
+In order to run frontend locally - run `npx nx serve frontned` from the project root folder - fronend will start on `http://localhost:4200`
